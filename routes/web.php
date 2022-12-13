@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HouseController;
+use App\Http\Controllers\ModernController;
+use App\Http\Controllers\StaticController;
+use App\Http\Controllers\MedicalController;
+use App\Http\Controllers\ElectricController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [StaticController::class, 'index']) -> name('home.index');
+Route::get('/call', [StaticController::class, 'call']) -> name('home.call');
+Route::resource('electrics', ElectricController::class);
+Route::resource('electronics', ElectronicController::class);
+Route::resource('houses', HouseController::class);
+Route::resource('medicals', MedicalController::class);
+Route::resource('moderns', ModernController::class);
