@@ -9,7 +9,7 @@ class MedicalController extends Controller
 {
     public function index()
     {
-        $medicals = Product::all();
+        $medicals = Product::where('category_id',4)->get();
         return view('medicals.index', compact('medicals'));
     }
 

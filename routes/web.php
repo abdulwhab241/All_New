@@ -6,6 +6,7 @@ use App\Http\Controllers\ModernController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\ElectricController;
+use App\Http\Controllers\ElectronicController;
 
 /*
 |--------------------------------------------------------------------------

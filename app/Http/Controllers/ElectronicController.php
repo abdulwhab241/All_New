@@ -9,7 +9,7 @@ class ElectronicController extends Controller
 {
     public function index()
     {
-        $electronics = Product::all();
+        $electronics = Product::where('category_id',2)->get();
         return view('electronics.index', compact('electronics'));
     }
     public function show($electronic)

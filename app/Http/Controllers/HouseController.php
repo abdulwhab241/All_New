@@ -10,13 +10,13 @@ class HouseController extends Controller
 {
     public function index()
     {
-        $houses = Product::all();
+        $houses = Product::where('category_id',3)->get();
         return view('houses.index',compact('houses'));
     }
 
     public function show($house)
     {
-        return view('house.show', [
+        return view('houses.show', [
             'house' => Product::findOrFail($house)
         ]);
     }
