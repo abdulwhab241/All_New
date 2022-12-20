@@ -14,7 +14,7 @@
 
       @if(count(data_get($electronic,'image')??[]))
       @foreach(data_get($electronic,'image') as $image)
-      <a href="{{ route('electronics.image') }}"> <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width:100px; height:100px;"></a>
+      <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width:100px; height:100px;">
       @endforeach
       @endif
 

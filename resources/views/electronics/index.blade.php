@@ -17,7 +17,7 @@
 			</div>
     </div>
 	</section>
-  <section>
+  {{-- <section>
   <div class="container">
   <div class="row">
     <div class="col">
@@ -45,8 +45,64 @@
     </div>
   </div>
 </div>
+</section> --}}
+<section>
+  {{-- <div class="container"> --}}
+    <!-- Content here -->
+    <table border="1px">
+        <tr>
+          <td>Name</td>
+          <td>Image</td>
+          <td>Price</td>
+        </tr>
+        @foreach($electronics as $electronicx)
+        <tr>
+          <td>{{ $electronicx->name }}</td>
+          <td></td>
+          <td>{{ $electronicx->price }}</td>
+        </tr>
+    </table>
+    @endforeach
+  {{-- </div> --}}
 </section>
 @endsection
 
+<div class="container">
+<table class="table table-bordered table-light">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      @if(count($electronics) > 0)
+      <ul>
+    
+      @foreach($electronics as $electronic)
+      <a href="{{ route('electronics.show', ['electronic' => $electronic['id']]) }}">
+      <li>
+      <div class="card border-0" style="width: 15rem;">
+        <img class="card-img-top" src="{{ '/uploads/' . data_get($electronic,"image.0") }}" >
+        <div class="card-body">
+          <h5 class="card-title"> {{ $electronic->name }}</h5>
+          <p class="card-text"> السعر: {{ $electronic->price }} YER</p>
+        </div>
+      </div>
+      </li>
+      </a>
+      @endforeach
+      </ul>
+      {{ $electronics->links() }}
+      @else
+      <p>There are no Electronic to display.</p>
+      @endif
+    </tr>
+
+  </tbody>
+</div>
+</table>
 
 

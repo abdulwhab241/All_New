@@ -19,10 +19,5 @@ class ElectronicController extends Controller
         ]);
     }
 
-    public function image($electronic)
-    {
-        return view('electronics.image', [
-            'electronic' => Product::findOrFail($electronic)
-        ]);
-    }
+
 }
