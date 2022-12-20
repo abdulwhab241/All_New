@@ -10,7 +10,7 @@ class ElectricController extends Controller
 {
     public function index()
     {
-            $electrics = Product::where('category_id',1)->get();
+            $electrics = Product::where('category_id',1)->paginate(10);
             return view('electrics.index', compact('electrics'));
     }
 

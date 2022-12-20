@@ -38,6 +38,7 @@
                 </a>
                 @endforeach
                 </ul>
+                {{ $electronics->links() }}
                 @else
                 <p>There are no Electronic to display.</p>
                 @endif
@@ -47,5 +48,5 @@
 </section>
 @endsection
 
- 
+
 

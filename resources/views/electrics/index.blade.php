@@ -38,6 +38,7 @@
                 </a>
                 @endforeach
                 </ul>
+                {{ $electrics->links() }}
                 @else
                 <p>There are no Electric to display.</p>
                 @endif

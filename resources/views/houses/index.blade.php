@@ -19,6 +19,21 @@
 	</section>
   <section>
   <div class="container">
+
+    {{-- <form action="{{ route('houses.search') }}" method="GET">
+    <!-- Start Filter Bar -->
+    <div class="filter-bar d-flex flex-wrap align-items-center" style="margin-top: 20px;">
+        <div class="input-group filter-bar-search">
+          <input type="text" placeholder="ابحث عن المنتج" name="search" style="font-size: 16px;">
+          <div class="input-group-append">
+            <button type="button"><i class="ti-search"></i></button>
+          </div>
+        </div>
+    </div>
+    <!-- End Filter Bar -->
+    </form> --}}
+
+
   <div class="row">
     <div class="col">
                 @if(count($houses) > 0)
@@ -38,6 +53,7 @@
                 </a>
                 @endforeach
                 </ul>
+                {{ $houses->links() }}
                 @else
                 <p>There are no House to display.</p>
                 @endif
@@ -47,5 +63,4 @@
 </section>
 @endsection
 
- 
 

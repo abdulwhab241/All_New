@@ -9,7 +9,7 @@ class ModernController extends Controller
 {
     public function index()
     {
-        $moderns = Product::where('category_id',5)->get();
+        $moderns = Product::where('category_id',5)->paginate(10);
         return view('moderns.index', compact('moderns'));
     }
 

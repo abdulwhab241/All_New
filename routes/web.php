@@ -21,8 +21,10 @@ use App\Http\Controllers\ElectronicController;
 
 Route::get('/', [StaticController::class, 'index']) -> name('home.index');
 Route::get('/call', [StaticController::class, 'call']) -> name('home.call');
+Route::get('/search', [StaticController::class, 'search']) -> name('home.search');
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
+// Route::get('/search', [HouseController::class, 'search']) -> name('houses.search');

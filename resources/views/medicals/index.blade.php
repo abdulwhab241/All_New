@@ -38,6 +38,7 @@
                 </a>
                 @endforeach
                 </ul>
+                {{ $medicals->links() }}
                 @else
                 <p>There are no Medical to display.</p>
                 @endif
@@ -47,5 +48,4 @@
 </section>
 @endsection
 
- 
 

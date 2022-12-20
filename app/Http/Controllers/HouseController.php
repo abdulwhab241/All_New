@@ -10,7 +10,11 @@ class HouseController extends Controller
 {
     public function index()
     {
-        $houses = Product::where('category_id',3)->get();
+        // else
+        // [
+        //     $posts = Product::simplePaginate(3);
+        // ]
+        $houses = Product::where('category_id',3)->paginate(10);
         return view('houses.index',compact('houses'));
     }
 
@@ -20,4 +24,6 @@ class HouseController extends Controller
             'house' => Product::findOrFail($house)
         ]);
     }
+
+
 }

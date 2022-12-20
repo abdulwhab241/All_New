@@ -38,6 +38,7 @@
                 </a>
                 @endforeach
                 </ul>
+                {{ $moderns->links() }}
                 @else
                 <p>There are no Modern to display.</p>
                 @endif
@@ -47,5 +48,4 @@
 </section>
 @endsection
 
- 
 
