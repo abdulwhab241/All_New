@@ -38,7 +38,9 @@
                 </a>
                 @endforeach
                 </ul>
+                <div class="d-flex justify-content-center">
                 {{ $electrics->links() }}
+                </div>
                 @else
                 <p>There are no Electric to display.</p>
                 @endif

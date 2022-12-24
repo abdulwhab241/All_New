@@ -18,7 +18,7 @@ use App\Http\Controllers\ElectronicController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+define('PAGINATION_COUNT', 8);
 Route::get('/', [StaticController::class, 'index']) -> name('home.index');
 Route::get('/call', [StaticController::class, 'call']) -> name('home.call');
 Route::get('/search', [StaticController::class, 'search']) -> name('home.search');

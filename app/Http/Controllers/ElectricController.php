@@ -10,7 +10,7 @@ class ElectricController extends Controller
 {
     public function index()
     {
-            $electrics = Product::where('category_id',1)->paginate(10);
+            $electrics = Product::where('category_id',1)->paginate(PAGINATION_COUNT);
             return view('electrics.index', compact('electrics'));
     }
 

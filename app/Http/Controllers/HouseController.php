@@ -14,7 +14,7 @@ class HouseController extends Controller
         // [
         //     $posts = Product::simplePaginate(3);
         // ]
-        $houses = Product::where('category_id',3)->paginate(10);
+        $houses = Product::where('category_id',3)->paginate(PAGINATION_COUNT);
         return view('houses.index',compact('houses'));
     }
 

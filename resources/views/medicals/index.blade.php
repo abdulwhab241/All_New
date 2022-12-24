@@ -38,7 +38,9 @@
                 </a>
                 @endforeach
                 </ul>
+                <div class="d-flex justify-content-center">
                 {{ $medicals->links() }}
+                </div>
                 @else
                 <p>There are no Medical to display.</p>
                 @endif

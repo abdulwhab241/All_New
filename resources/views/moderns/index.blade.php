@@ -38,7 +38,9 @@
                 </a>
                 @endforeach
                 </ul>
+                <div class="d-flex justify-content-center">
                 {{ $moderns->links() }}
+                </div>
                 @else
                 <p>There are no Modern to display.</p>
                 @endif

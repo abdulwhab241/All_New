@@ -53,7 +53,9 @@
                 </a>
                 @endforeach
                 </ul>
+                <div class="d-flex justify-content-center">
                 {{ $houses->links() }}
+                </div>
                 @else
                 <p>There are no House to display.</p>
                 @endif

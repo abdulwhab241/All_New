@@ -9,7 +9,7 @@ class MedicalController extends Controller
 {
     public function index()
     {
-        $medicals = Product::where('category_id',4)->paginate(10);
+        $medicals = Product::where('category_id',4)->paginate(PAGINATION_COUNT);
         return view('medicals.index', compact('medicals'));
     }
 
