@@ -14,14 +14,14 @@
 
       @if(count(data_get($electric,'image')??[]))
       @foreach(data_get($electric,'image') as $image)
-      <a href="#"> <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width:90px; height:90px;"></a>
+      <a href="#"> <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width:150px; height:100px;"></a>
       @endforeach
       @endif
 
     </div>
     <div class="col-md-8">
       <div class="card-body" style="padding: 5px;">
-        <h3 class="card-title"> {{ $electric['name'] }}</h3>
+        <h3 class="card-title" style="margin-top: 10px;"> {{ $electric['name'] }}</h3>
         <p class="card-text" style="font-weight: bold;  margin-top: 20px; "> {{ $electric['disc'] }}</p>
         <p class="card-text" style="color: blue; font-weight: bold;">السعر: {{ $electric['price'] }} YER </p>
       </div>

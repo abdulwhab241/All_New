@@ -4,63 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "567396ac0688985ccb5d72e63bf85e51",
+    "content-hash": "89ad38f66d97b80b90e5fc7749263bf9",
     "packages": [
-        {
-            "name": "abdrzakoxa/laravel-eloquent-filter",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/abdrzakoxa/laravel-eloquent-filter.git",
-                "reference": "95332049a4c074539cde4749516362cc35be53a3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/abdrzakoxa/laravel-eloquent-filter/zipball/95332049a4c074539cde4749516362cc35be53a3",
-                "reference": "95332049a4c074539cde4749516362cc35be53a3",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^6.0|^7.0|^8.0|^9.0",
-                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.19",
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^9.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Abdrzakoxa\\EloquentFilter\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Abderrazzak OXA",
-                    "email": "abderrazzakoxa@gmail.com"
-                }
-            ],
-            "description": "Scalable way to filter laravel model",
-            "keywords": [
-                "eloquent",
-                "filter",
-                "laravel",
-                "model",
-                "query",
-                "search"
-            ],
-            "support": {
-                "issues": "https://github.com/abdrzakoxa/laravel-eloquent-filter/issues",
-                "source": "https://github.com/abdrzakoxa/laravel-eloquent-filter/tree/1.1.0"
-            },
-            "time": "2022-04-21T03:51:52+00:00"
-        },
         {
             "name": "akaunting/laravel-money",
             "version": "3.1.2",
@@ -2487,6 +2432,81 @@
                 }
             ],
             "time": "2022-08-08T13:52:53+00:00"
+        },
+        {
+            "name": "mannikj/laravel-wallet",
+            "version": "v9.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MannikJ/laravel-wallet.git",
+                "reference": "4794dc495b981781cc44062dc1a232c1eeea19d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MannikJ/laravel-wallet/zipball/4794dc495b981781cc44062dc1a232c1eeea19d9",
+                "reference": "4794dc495b981781cc44062dc1a232c1eeea19d9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^9.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^3.0",
+                "nunomaduro/larastan": "^1.0",
+                "orchestra/testbench": "^7.5",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MannikJ\\Laravel\\Wallet\\WalletServiceProvider"
+                    ],
+                    "aliases": {
+                        "Wallet": "MannikJ\\Laravel\\Wallet\\Facades\\WalletFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MannikJ\\Laravel\\Wallet\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jannik Malken",
+                    "email": "mannikj@web.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Simon Depelchin",
+                    "email": "simon@webartisan.be",
+                    "homepage": "https://webartisan.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy to use virtual wallet for your app",
+            "homepage": "https://github.com/mannikj/laravel-wallet",
+            "keywords": [
+                "credits",
+                "currency",
+                "depsimon",
+                "laravel-wallet",
+                "mannikj",
+                "payment",
+                "virtual",
+                "wallet"
+            ],
+            "support": {
+                "issues": "https://github.com/MannikJ/laravel-wallet/issues",
+                "source": "https://github.com/MannikJ/laravel-wallet/tree/v9.0.0"
+            },
+            "time": "2022-05-11T14:43:55+00:00"
         },
         {
             "name": "masterminds/html5",

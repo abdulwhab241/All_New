@@ -42,7 +42,7 @@
                 {{ $moderns->links() }}
                 </div>
                 @else
-                <p>There are no Modern to display.</p>
+                <h3 style="margin: 10px;">لا يوجد منتجات لعرضها</h3>
                 @endif
     </div>
   </div>
