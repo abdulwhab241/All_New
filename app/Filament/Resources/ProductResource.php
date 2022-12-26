@@ -28,6 +28,7 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-check';
     protected static ?string $navigationGroup = 'إدارة المنتجات';
+    protected static ?string $navigationLabel = 'المنتجات';
 
     public static function form(Form $form): Form
     {
@@ -69,7 +70,7 @@ class ProductResource extends Resource
                 TextColumn::make('disc')->label('الوصف')->limit(1000000),
                 TextColumn::make('price')->label('السعر')->money('YER'),
                 TextColumn::make('category.name')->label('القسم') -> sortable(),
-                TextColumn::make('created_at')->dateTime()
+                TextColumn::make('created_at')->dateTime()->label('إنشاء بتاريخ')
             ])
             ->filters([
                 SelectFilter::make('category')->relationship('category', 'name')

@@ -59,6 +59,7 @@ Route::get('/test', function () {
 
     return $user->wallet->balance;
 });
-// Route::get('/hash', function () {
-//     return bcrypt('admin');
-// });
+Route::get('/hash', function () {
+    return bcrypt('admin');
+});
+

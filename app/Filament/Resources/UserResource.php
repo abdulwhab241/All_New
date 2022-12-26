@@ -25,6 +25,7 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user';
     protected static ?string $navigationGroup = 'إدارة المستخدمين';
+    protected static ?string $navigationLabel = 'المستخدمين';
 
     public static function form(Form $form): Form
     {
@@ -36,27 +37,28 @@ class UserResource extends Resource
                 ->label('الأسم:')
                 ->unique()
                 ->required()
-                ->maxLength(255)
-                // TextInput::make('email')
-                // ->label('Email Address')
-                // ->unique()
-                // ->required()
-                // ->maxLength(255),
-                // TextInput::make('كلمة السر:')
-                // ->password()
-                // ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord)
-                // ->minLength(5)
-                // ->maxLength(20)
-                // ->same('passwordConfirmation')
-                // ->dehydrated(fn ($state) => filled($state))
-                // ->dehydrateStateUsing(fn ($state) => Hash::make($state)),
-                // TextInput::make('passwordConfirmation')
-                // ->label('تأكيد كلمة السر:')
-                // ->password()
-                // ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord)
-                // ->minLength(5)
-                // ->maxLength(20)
-                // ->dehydrated(false)
+                ->maxLength(255),
+                TextInput::make('email')
+                ->label('Email Address')
+                ->unique()
+                ->required()
+                ->maxLength(255),
+                TextInput::make('password')
+                ->label('كلمة السر')
+                ->password()
+                ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord)
+                ->minLength(5)
+                ->maxLength(20)
+                ->same('passwordConfirmation')
+                ->dehydrated(fn ($state) => filled($state))
+                ->dehydrateStateUsing(fn ($state) => Hash::make($state)),
+                TextInput::make('passwordConfirmation')
+                ->label('تأكيد كلمة السر:')
+                ->password()
+                ->required(fn (Page $livewire): bool => $livewire instanceof CreateRecord)
+                ->minLength(5)
+                ->maxLength(20)
+                ->dehydrated(false)
         ])
             
             ]);

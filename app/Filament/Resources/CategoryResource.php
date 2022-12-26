@@ -23,6 +23,7 @@ class CategoryResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
     protected static ?string $activeNavigationIcon = 'heroicon-s-document-text';
     protected static ?string $navigationGroup = 'إدارة الاقسام';
+    protected static ?string $navigationLabel = 'الاقسام';
 
     public static function form(Form $form): Form
     {
@@ -43,9 +44,9 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id') -> sortable(),
+                TextColumn::make('id') -> sortable()->label('رقم العملية'),
                 TextColumn::make('name')->label('الأسم')->sortable() -> searchable(),
-                TextColumn::make('created_at')->label('تاريخ الإنشاء')->dateTime()
+                TextColumn::make('created_at')->label('إنشاء بتاريخ')->dateTime()
             ])
             ->filters([
                 //
@@ -74,3 +75,4 @@ class CategoryResource extends Resource
         ];
     }    
 }
+
