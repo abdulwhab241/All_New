@@ -25,12 +25,18 @@
         <p class="card-text" style="font-weight: bold;  margin-top: 20px; "> {{ $house['disc'] }}</p>
         <p class="card-text" style="color: blue; font-weight: bold;">السعر: {{ $house['price'] }} YER </p>
       </div>
+      <div>
+        <input type="number" name="" id="" value="1" style="width: 50px; text-align: center;">
+        <button class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</button>    
+      </div>
     </div>
-    <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a>
+    {{-- <input type="number" name="" id="">
+    <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a> --}}
   </div> 
 </div>   
 </div>
 </div>
+  </div>
 </section>
 <section style="text-align: center; margin-bottom: 20px;">
   <h6 >

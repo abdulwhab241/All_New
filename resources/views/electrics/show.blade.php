@@ -26,11 +26,16 @@
         <p class="card-text" style="color: blue; font-weight: bold;">السعر: {{ $electric['price'] }} YER </p>
       </div>
     </div>
-    <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a>
+    <div>
+      <input type="number" name="" id="" value="1" style="width: 50px; text-align: center;">
+      <button class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</button>    
+    </div>
+    {{-- <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a> --}}
   </div> 
 </div>   
 </div>
 </div>
+  </div>
 </section>
 <section style="text-align: center; margin-bottom: 20px;">
   <h6 >
