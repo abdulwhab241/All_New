@@ -12,7 +12,10 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "mannikj/laravel-wallet": "^9.0"
+        "mannikj/laravel-wallet": "^9.0",
+        "phpmailer/phpmailer": "^6.7",
+        "symfony/http-client": "^6.2",
+        "symfony/mailgun-mailer": "^6.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

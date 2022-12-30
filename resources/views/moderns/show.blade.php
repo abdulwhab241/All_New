@@ -27,7 +27,7 @@
       </div>
     </div>
     <div>
-      <input type="number" name="" id="" value="1" style="width: 50px; text-align: center;">
+      <input type="number" name="" id="" value="1" readonly style="width: 50px; text-align: center;">
       <button class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</button>    
     </div>
     {{-- <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a> --}}

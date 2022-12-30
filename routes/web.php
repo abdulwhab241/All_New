@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -23,13 +24,15 @@ use App\Http\Controllers\ElectronicController;
 */
 define('PAGINATION_COUNT', 8);
 Route::get('/', [StaticController::class, 'index']) -> name('home.index');
-Route::get('/call', [StaticController::class, 'call']) -> name('home.call');
+// Route::get('/contact', [StaticController::class, 'contact']) -> name('home.contact');
 Route::get('/search', [StaticController::class, 'search']) -> name('home.search');
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
+Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');
+Route::post('/contact', [ContactController::class, 'submit']) -> name('contact.submit');
 // Route::post('/electronics', [ElectronicController::class, 'show']);
 // Route::get('/search', [HouseController::class, 'search']) -> name('houses.search');
 

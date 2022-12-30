@@ -53,7 +53,7 @@
 							</li>
               
 						
-              <li class="nav-item"><a class="nav-link" href="{{ route('home.call') }}">اتصل بنا</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('contact.show') }}">اتصل بنا</a></li>
             </ul>
 
             <ul class="nav-shop">

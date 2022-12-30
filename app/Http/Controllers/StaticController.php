@@ -11,10 +11,10 @@ class StaticController extends Controller
     {
         return view('welcome');
     }
-    public function call() 
-    {
-        return view('call');
-    }
+    // public function contact() 
+    // {
+    //     return view('contact');
+    // }
     public function search(Request $request)
     {
         // $search = request()->query('search');
