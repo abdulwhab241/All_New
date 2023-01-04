@@ -46,12 +46,12 @@
             </span>
         @enderror
         </div>
-        {{-- <div class="form-group">
-            <input class="form-control" name="mobile" value="{{ old('mobile') }}" id="mobile" type="text" placeholder="رقم الهاتف">
-        </div> --}}
         <div class="form-group">
-            <input class="form-control" name="subject" value="{{ old('subject') }}" id="subject" type="text" placeholder="الموضوع">
-            @error('subject')
+            <input class="form-control" name="mobile" value="{{ old('mobile') }}" id="mobile" type="text" placeholder="رقم الهاتف">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="title" value="{{ old('title') }}" id="title" type="text" placeholder="الموضوع">
+            @error('title')
             <span class="text-danger">
             الموضوع فارغ الرجاء إدخال الموضوع
             </span>
@@ -60,7 +60,7 @@
         </div>
         <div class="col-lg-7">
         <div class="form-group">
-            <textarea class="form-control different-control w-100" name="content" value="{{ old('content') }}" id="content" cols="30" rows="5" placeholder="ادخل الرسالة"></textarea>
+            <textarea class="form-control different-control w-100" name="content" id="content" cols="30" rows="5" placeholder="ادخل الرسالة">{{ old('content') }}</textarea>
             @error('content')
             <span class="text-danger">
                 الرساله فارغة الرجاء إدخال الرساله

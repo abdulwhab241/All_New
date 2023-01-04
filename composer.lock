@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c67eca7041d182ce5e78027699028276",
+    "content-hash": "e928d1f2cfd9a3e9fd0e89241d25e939",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -3969,6 +3969,42 @@
                 }
             ],
             "time": "2022-09-02T11:04:28+00:00"
+        },
+        {
+            "name": "snipworks/php-smtp",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/snipworks/php-smtp.git",
+                "reference": "06129fa0632b5be3ddbc91392e48352faaf31140"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/snipworks/php-smtp/zipball/06129fa0632b5be3ddbc91392e48352faaf31140",
+                "reference": "06129fa0632b5be3ddbc91392e48352faaf31140",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-openssl": "*",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Snipworks\\Smtp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Simple PHP SMTP Mail Send Script",
+            "support": {
+                "issues": "https://github.com/snipworks/php-smtp/issues",
+                "source": "https://github.com/snipworks/php-smtp/tree/master"
+            },
+            "time": "2020-09-06T10:10:40+00:00"
         },
         {
             "name": "spatie/invade",

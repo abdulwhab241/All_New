@@ -14,7 +14,9 @@
         "laravel/tinker": "^2.7",
         "mannikj/laravel-wallet": "^9.0",
         "phpmailer/phpmailer": "^6.7",
+        "snipworks/php-smtp": "^2.0",
         "symfony/http-client": "^6.2",
+        "symfony/mailer": "^6.2",
         "symfony/mailgun-mailer": "^6.2"
     },
     "require-dev": {
