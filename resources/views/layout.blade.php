@@ -52,7 +52,14 @@
                 </ul>
 							</li>
               
-						
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">الصفحات</a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item"><a class="nav-link" href="{{ route('home.login') }}">دخول</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('home.register') }}">إنشاء حساب</a></li>
+                </ul>
+              </li>
               <li class="nav-item"><a class="nav-link" href="{{ route('contact.show') }}">اتصل بنا</a></li>
             </ul>
 

@@ -28,28 +28,4 @@ class ContactController extends Controller
         Mail::to($request->email)->send(new ContactMail($request->name,$request->email,$request->mobile,$request->title, $request->content));
         return back()->with(['message' => 'Email successfully sent!']);
     }
-
-    // public function submit(Request $request)
-    // {
-    //         $request->validate([
-    //         'email' => 'required|email',
-    //         'subject' => 'required',
-    //         'name' => 'required',
-    //         'content' => 'required',
-    //         ]);
-
-    //         $data = [
-    //         'subject' => $request->subject,
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'content' => $request->content
-    //         ];
-
-    //         Mail::send('email-template', $data, function($message) use ($data) {
-    //         $message->to($data['email'])
-    //         ->subject($data['subject']);
-    //         });
-
-    //         return back()->with(['message' => 'Email successfully sent!']);
-    // }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StaticController extends Controller
 {
@@ -11,10 +13,14 @@ class StaticController extends Controller
     {
         return view('welcome');
     }
-    // public function contact() 
-    // {
-    //     return view('contact');
-    // }
+   
+
+    public function register() 
+    {
+        return view('register');
+        
+    }
+
     public function search(Request $request)
     {
         // $search = request()->query('search');
