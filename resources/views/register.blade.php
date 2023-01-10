@@ -23,7 +23,7 @@
 @enderror
 </div>
 <div class="col-md-12 form-group">
-<input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address">
+<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="Email Address">
 @if ($errors->has('email'))
 <span class="text-danger">{{ $errors->First('email') }}</span>
 @endif
