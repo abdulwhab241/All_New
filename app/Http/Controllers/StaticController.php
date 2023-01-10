@@ -13,13 +13,12 @@ class StaticController extends Controller
     {
         return view('welcome');
     }
-   
 
-    public function register() 
-    {
-        return view('register');
+    // public function register() 
+    // {
+    //     return view('register');
         
-    }
+    // }
 
     public function search(Request $request)
     {

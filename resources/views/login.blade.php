@@ -25,7 +25,7 @@
     <div class="row">
         @if (Session::has('message'))
             <div class="alert alert-info">
-                {{Session::get('message')}}
+                <span> {{Session::get('message')}} </span>
             </div>
         @endif
         {{-- <div class="col-lg-6">
