@@ -27,8 +27,11 @@ Route::get('/', [StaticController::class, 'index']) -> name('home.index');
 Route::get('/search', [StaticController::class, 'search']) -> name('home.search');
 Route::get('/login', [LoginController::class, 'login']) -> name('home.login');
 Route::get('/register', [LoginController::class, 'register']) -> name('home.register');
-Route::post('/checkLogin', [LoginController::class, 'checkLogin']) -> name('home.checkLogin');
+
+Route::post('/check', [LoginController::class, 'check']) -> name('check');
+Route::get('/destroy', [LoginController::class, 'destroy']) -> name('home.destroy');
 Route::post('/', [LoginController::class, 'create']) -> name('create');
+
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);

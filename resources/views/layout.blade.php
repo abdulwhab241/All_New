@@ -62,23 +62,29 @@
               </li>
               <li class="nav-item"><a class="nav-link" href="{{ route('contact.show') }}">اتصل بنا</a></li>
             </ul>
-
             <ul class="nav-shop">
               <li class="nav-item"><a class="button button-header btn-info" href="#">شراء الان</a></li>
               <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle" style="margin-top: 10px;">3</span></button> </li>
             </ul>
             <form action="{{ route('home.search') }}" method="GET">
-              <!-- Start Filter Bar -->
               <div class="nav-shop">
                   <div class="nav-shop">
                     <input type="text" placeholder="ابحث عن المنتج" name="search" style="font-size: 16px; margin-right:10px;">
-                    {{-- <div class="input-group-append">
-                      <button type="button"><i class="ti-search"></i></button>
-                    </div> --}}
                   </div>
               </div>
-              <!-- End Filter Bar -->
               </form>
+              @if (isset(Auth::user()->name))
+              <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                  aria-expanded="false">أوول نيو ورك 🏬 </a>
+                <ul class="dropdown-menu">
+                  <li class="nav-item">
+                  <h6 style="color: cornflowerblue; font-weight: bold; text-align: center;"> Welcome {{ Auth::user()->name}}</h6>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" style="font-weight: bold; text-align: center; color: red" href="{{ route('home.destroy') }}">تسجيل خروج</a></li>
+                </ul>
+                @endif
+              </li>
           </div>
         </div>
       </nav>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,24 +34,22 @@ class LoginController extends Controller
         $request->session()->put('create_user', time());
         return redirect('/register')->with('message', 'تم إنشاء الحساب بنجاح');
     }
-    public function checkLogin(Request $user)
+    public function check(LoginRequest $request)
     {
-        
-        // $user->validate([
-        //             'name' => 'required',
-        //             'password' => 'required',
-        //             ]);
-        // $user_data = array(
-        //     'name' => $user->get('name'),
-        //     'password' => $user->get('password')
-        // );
-        // if(User::attempt($user_data))
-        // {
-        //     return back()->with(['message' => 'Login successfully !']);
-        // }
-        // else
-        // {
-        //     return back()->with('error', 'Wrong Login Details');
-        // }
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        return redirect('/login')->with('message', 'تم تسجيل الدخول بنجاح');
     } 
+    public function destroy(Request $request)
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
