@@ -44,8 +44,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id') -> sortable()->label('رقم العملية'),
-                TextColumn::make('name')->label('الأسم')->sortable() -> searchable(),
+                TextColumn::make('id')->sortable()->label('رقم العملية'),
+                TextColumn::make('name')->label('الأسم')->sortable()->searchable(),
                 TextColumn::make('created_at')->label('إنشاء بتاريخ')->dateTime()
             ])
             ->filters([
@@ -53,9 +53,6 @@ class CategoryResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
     

@@ -18,14 +18,12 @@
 </div>
 </section>
 <section style="margin-top: 10px; margin-bottom: 10px;">
-<div class="card-body">
-    @if(Session::has('message_sent'))
-    <div class="alert alert-success">
-        {{Session::get('message_sent')}}
-    </div>
+<div class="col-md-12 col-lg-12">
+    @if (Session::has('message'))
+<div class="alert alert-info">
+	<span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
 </div>
 @endif
-<div class="col-md-12 col-lg-12">
     <form action="{{ route('contact.submit') }}" class="contact_form" method="POST" enctype="multipart/form-data" id="contactForm" novalidate="novalidate">
     @csrf
     <div class="row">

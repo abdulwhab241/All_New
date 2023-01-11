@@ -22,43 +22,24 @@ class ContactResource extends Resource
     protected static ?string $navigationGroup = 'إدارة الإيميلات';
     protected static ?string $navigationLabel = 'الإيميلات';
 
-    // public static function form(Form $form): Form
-    // {
-    //     return $form
-    //         ->schema([
-    //             //
-    //         ]);
-    // }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('id') -> sortable()->label('رقم العملية'),
-                TextColumn::make('name')->label('الأسم')->sortable() -> searchable(),
+                TextColumn::make('id')->sortable()->label('رقم العملية'),
+                TextColumn::make('name')->label('الأسم')->sortable()->searchable(),
                 TextColumn::make('email')->label('الإيميل')->sortable(),
                 TextColumn::make('mobile')->label('الهاتف')->sortable(),
                 TextColumn::make('title')->label('الموضوع')->sortable(),
                 TextColumn::make('message')->label('الرسالة')->sortable(),
-                TextColumn::make('created_at')->label('إنشاء بتاريخ')->dateTime()
+                TextColumn::make('created_at')->label('تاريخ الارسال')->dateTime()
             ])
             ->filters([
                 //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
     
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
     
     public static function getPages(): array
     {

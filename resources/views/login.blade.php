@@ -9,7 +9,7 @@
                 <h3 style="color: cornflowerblue; font-weight: bold;">تسجيل الدخول</h3>
                 @if (Session::has('message'))
                 <div class="alert alert-info">
-                    <span> {{Session::get('message')}} </span>
+                    <span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
                 </div>
                 @endif
                 <form  method="POST" action="{{ route('check') }}" enctype="multipart/form-data">

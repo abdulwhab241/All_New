@@ -9,7 +9,7 @@
 <h3 style="color: cornflowerblue; font-weight: bold;">إنشاء حساب</h3>
 @if (Session::has('message'))
 <div class="alert alert-info">
-	<span> {{Session::get('message')}} </span>
+	<span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
 </div>
 @endif
 <form class="row login_form" action="{{ route('create') }}" method="POST" id="register_form" >

@@ -25,7 +25,7 @@ class ContactController extends Controller
         $contact -> message = strip_tags($request->input('content') );
 
         $contact -> save();
-        Mail::to($request->email)->send(new ContactMail($request->name,$request->email,$request->mobile,$request->title, $request->content));
-        return back()->with(['message' => 'Email successfully sent!']);
+        // Mail::to($request->email)->send(new ContactMail($request->name,$request->email,$request->mobile,$request->title, $request->content));
+        return back()->with(['message' => 'تم الارسال بنجاح']);
     }
 }

@@ -9,11 +9,12 @@ use Filament\Resources\Pages\ListRecords;
 class ListContacts extends ListRecords
 {
     protected static string $resource = ContactResource::class;
+    protected static ?string $navigationLabel = 'الإيميلات';
 
-    protected function getActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+    // protected function getActions(): array
+    // {
+    //     return [
+    //         Actions\CreateAction::make(),
+    //     ];
+    // }
 }

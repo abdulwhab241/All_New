@@ -67,19 +67,13 @@ class UserResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            TextColumn::make('id') -> sortable(),
-            TextColumn::make('name')->label('الأسم')->sortable() -> searchable(),
-            TextColumn::make('created_at')->label('تاريخ الإنشاء')->dateTime()
-        ])
+            ->columns([
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('name')->label('الأسم')->sortable()->searchable(),
+                TextColumn::make('created_at')->label('تاريخ الإنشاء')->dateTime()
+            ])
             ->filters([
                 //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
     
@@ -94,7 +88,6 @@ class UserResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
         ];
     }    
 }
