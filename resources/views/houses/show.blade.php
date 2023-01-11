@@ -9,7 +9,11 @@
   <div class="row g-0">
     <div class="col-md-4">
 
-
+      @if (Session::has('message'))
+      <div class="alert alert-info">
+        <span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
+      </div>
+      @endif
 
 
       @if(count(data_get($house,'image')??[]))
@@ -26,8 +30,8 @@
         <p class="card-text" style="color: blue; font-weight: bold;">السعر: {{ $house['price'] }} YER </p>
       </div>
       <div>
-        <input type="number" name="" id="" value="1" style="width: 50px; text-align: center;">
-        <button class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</button>    
+        <input type="number" name="quantity" min="1" id="" value="1" style="width: 50px; text-align: center; padding:5px;">
+        <a href="{{ route('houses.add',$house['id']) }}" class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a>    
       </div>
     </div>
     {{-- <input type="number" name="" id="">

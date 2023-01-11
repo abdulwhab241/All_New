@@ -37,6 +37,12 @@ class ContactResource extends Resource
             ])
             ->filters([
                 //
+            ])
+            ->actions([
+
+                ])
+            ->bulkActions([
+
             ]);
     }
     

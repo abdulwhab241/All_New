@@ -1,7 +1,11 @@
 <?php
 
+use App\Models\Cart;
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ModernController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\ContactController;
@@ -9,7 +13,6 @@ use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ElectricController;
 use App\Http\Controllers\ElectronicController;
-use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +38,7 @@ Route::post('/', [LoginController::class, 'create']) -> name('create');
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
+Route::get('/houses{id}', [HouseController::class, 'add']) -> name('houses.add');
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
 Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');
@@ -91,18 +95,4 @@ Route::post('/contact', [ContactController::class, 'submit']) -> name('contact.s
 
 //     return $user->wallet->balance;
 // });
-// Route::get('/hash', function () {
-//     return bcrypt('admin');
-// });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
-// require __DIR__.'/auth.php';
