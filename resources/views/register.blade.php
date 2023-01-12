@@ -30,15 +30,13 @@
 </div>
 <div class="col-md-12 form-group">
 <input type="password" class="form-control" id="password" style="font-weight: bold; color:black;" name="password" value="{{ old('password') }}" placeholder="كلمة المرور" >
-@error('password')
-<span class="text-danger">
-كلمة المرور فارغة الرجاء إدخال كلمة المرور
-</span>
-@enderror
+@if ($errors->has('password'))
+<span class="text-danger">{{ $errors->First('password') }}</span>
+@endif
 </div>
 <div class="col-md-12 form-group">
-<input type="password" class="form-control" id="confirmPassword" style="font-weight: bold; color:black;" name="confirmPassword" placeholder="تأكيد كلمة المرور">
-@error('confirmPassword')
+<input type="password" class="form-control" id="confirmed" style="font-weight: bold; color:black;" name="confirmed" placeholder="تأكيد كلمة المرور">
+@error('confirmed')
 <span class="text-danger">
 الرجاء تأكيد كلمة المرور
 </span>

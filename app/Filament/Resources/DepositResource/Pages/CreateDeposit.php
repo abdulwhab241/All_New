@@ -33,7 +33,7 @@ class CreateDeposit extends CreateRecord
         $amount =    data_get($this->data, "amount");
 
         $user =  User::find($user_id);
-        $user->wallet->deposit($amount)->label('إيداع');
+        $user->wallet->deposit($amount);
         $this->notify("success", "deposit done" . $user->wallet->balance);
         $this->fillForm();
 

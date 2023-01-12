@@ -10,10 +10,10 @@ class ListWalletTransactions extends ListRecords
 {
     protected static string $resource = WalletTransactionsResource::class;
 
-    protected function getActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+    // protected function getActions(): array
+    // {
+    //     return [
+    //         Actions\CreateAction::make(),
+    //     ];
+    // }
 }

@@ -29,10 +29,13 @@
         <p class="card-text" style="font-weight: bold;  margin-top: 20px; "> {{ $house['disc'] }}</p>
         <p class="card-text" style="color: blue; font-weight: bold;">السعر: {{ $house['price'] }} YER </p>
       </div>
-      <div>
-        <input type="number" name="quantity" min="1" id="" value="1" style="width: 50px; text-align: center; padding:5px;">
-        <a href="{{ route('houses.add',$house['id']) }}" class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a>    
+      <form action="{{ route('add',$house['id']) }}" method="POST">
+      @csrf
+        <div>
+        <input type="number" name="quantity" min="1" value="1" style="width: 50px; text-align: center; padding:5px;">
+        <input type="submit" class="btn btn-outline-info btn-lg " value="إضافة الى السلة" style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">   
       </div>
+    </form>
     </div>
     {{-- <input type="number" name="" id="">
     <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a> --}}

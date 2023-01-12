@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+
 
 class LoginController extends Controller
 {
@@ -21,17 +27,21 @@ class LoginController extends Controller
     public function create(Request $request)
     {
         $request->validate([
-                        'name' => ['required','string', 'max:255'],
-                        'email' => ['required','string', 'email', 'max:255','unique:users'],
-                        'password' => ['required','string', 'min:5'],
-                        'confirmPassword',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required','min:5', Rules\Password::defaults()],
         ]);
-        $create_user = new User;
-        $create_user->name = $request->input('name');
-        $create_user->email = $request->input('email');
-        $create_user->password = $request->input('password');
-        $create_user->save();
-        $request->session()->put('create_user', time());
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        // event(new Registered($user));
+
+        // Auth::login($user);
+
         return redirect('/register')->with('message', 'تم إنشاء الحساب بنجاح');
     }
     public function check(LoginRequest $request)
