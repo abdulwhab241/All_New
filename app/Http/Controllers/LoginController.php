@@ -42,15 +42,15 @@ class LoginController extends Controller
 
         // Auth::login($user);
 
-        return redirect('/register')->with('message', 'تم إنشاء الحساب بنجاح');
+        return redirect('/login')->with('message', 'تم إنشاء الحساب بنجاح سجل دخول');
     }
-    public function check(LoginRequest $request)
+    public function check(Request $request)
     {
-        $request->authenticate();
 
-        $request->session()->regenerate();
-
-        return redirect('/login')->with('message', 'تم تسجيل الدخول بنجاح');
+        if(Auth::attempt($request->only('name', 'password'), 1)){
+            return redirect('/login')->with('message', 'تم تسجيل الدخول بنجاح');
+        }
+        return redirect('/login')->with('message', 'فشل');
     } 
     public function destroy(Request $request)
     {

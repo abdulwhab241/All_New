@@ -14,20 +14,27 @@ function get_cart_session_hash(){
 }
 
 function get_cart(){
-    return Cart::where("hash_id", get_cart_session_hash())->get();;
+    return Cart::with(["product"])->where("hash_id", get_cart_session_hash())->get();
 }
 
 function clear_cart(){
     return Cart::where("hash_id", get_cart_session_hash())->delete();
 }
 
-function add_product_to_cart($product_id,$quantity){
+function add_product_to_cart($product_id,$quantity):string{
 
-    return Cart::create(
+
+if(Cart::where("product_id",$product_id)->where("quantity",$quantity)->first())    {
+    return "تم اضافة الصنف مسبقاَ";
+}
+
+        Cart::create(
         [
             "product_id" => $product_id,
             "quantity" => $quantity,
             "hash_id" => get_cart_session_hash()
         ]
     );
+    return "تم اضافة الصنف للسلة";
+
 }

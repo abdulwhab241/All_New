@@ -15,6 +15,7 @@
         "mannikj/laravel-wallet": "^9.0",
         "phpmailer/phpmailer": "^6.7",
         "snipworks/php-smtp": "^2.0",
+        "spatie/laravel-permission": "^5.7",
         "symfony/http-client": "^6.2",
         "symfony/mailer": "^6.2",
         "symfony/mailgun-mailer": "^6.2"

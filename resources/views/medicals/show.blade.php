@@ -8,16 +8,16 @@
     <div class="card mb-3 border-0" style="width: 100%; margin: 5px;  padding:5px; background: #F1F6F7;">
   <div class="row g-0">
     <div class="col-md-4">
-
-
-
-
+      @if (Session::has('message'))
+      <div class="alert alert-info">
+        <span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
+      </div>
+      @endif
       @if(count(data_get($medical,'image')??[]))
       @foreach(data_get($medical,'image') as $image)
-      <a href="#"> <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width: 150px; height: 100px;"></a>
+      <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width: 150px; height: 100px;">
       @endforeach
       @endif
-
     </div>
     <div class="col-md-8">
       <div class="card-body" style="padding: 5px;">
@@ -25,16 +25,14 @@
         <p class="card-text" style="font-weight: bold;  margin-top: 20px; "> {{ $medical['disc'] }}</p>
         <p class="card-text" style="color: blue; font-weight: bold;">السعر: {{ $medical['price'] }} YER </p>
       </div>
-    </div>
-    <div>
-      <input type="number" name="" id="" value="1" style="width: 50px; text-align: center;">
-      <button class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</button>    
-    </div>
-    <div>
-      <input type="number" name="" id="" value="1" style="width: 50px; text-align: center;">
-      <button class="btn btn-outline-info btn-lg "  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</button>    
-    </div>
-    {{-- <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a> --}}
+      <form action="{{ route('add',$medical['id']) }}" method="POST">
+        @csrf
+          <div>
+          <input type="number" name="quantity" min="1" value="1" style="width: 50px; text-align: center; padding:5px;">
+          <input type="submit" class="btn btn-outline-info btn-lg " value="إضافة الى السلة" style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">   
+        </div>
+      </form>
+      </div>
   </div> 
 </div>   
 </div>
@@ -42,8 +40,7 @@
   </div>
 </section>
 <section style="text-align: center; margin-bottom: 20px;">
-  <h6 >
-    التصنيفات: 
+  <h6 style="text-align: center;">
     <a href="{{ route('electronics.index') }}"> الالكترونيات ⌚</a> / 
     <a href="{{ route('electrics.index') }}">الكهربائيات ⚡</a> / 
     <a href="{{ route('houses.index') }}"> الادوات المنزلية 🏠</a> / 

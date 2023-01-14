@@ -8,17 +8,14 @@
     <div class="card mb-3 border-0" style="width: 100%; margin: 5px;  padding:5px; background: #F1F6F7;">
   <div class="row g-0">
     <div class="col-md-4">
-
       @if (Session::has('message'))
       <div class="alert alert-info">
         <span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
       </div>
       @endif
-
-
       @if(count(data_get($house,'image')??[]))
       @foreach(data_get($house,'image') as $image)
-      <a href="#"> <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width:150px; height:100px;"></a>
+      <img src="{{ '/uploads/' . $image }}" class="img-fluid rounded-start" style="padding: 5px; width:150px; height:100px;">
       @endforeach
       @endif
 
@@ -46,8 +43,7 @@
   </div>
 </section>
 <section style="text-align: center; margin-bottom: 20px;">
-  <h6 >
-    التصنيفات: 
+  <h6 style="text-align: center;"> 
     <a href="{{ route('electronics.index') }}"> الالكترونيات ⌚</a> / 
     <a href="{{ route('electrics.index') }}">الكهربائيات ⚡</a> / 
     <a href="{{ route('houses.index') }}"> الادوات المنزلية 🏠</a> / 

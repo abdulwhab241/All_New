@@ -28,8 +28,8 @@ define('PAGINATION_COUNT', 8);
 Route::get('/', [StaticController::class, 'index']) -> name('home.index');
 // Route::get('/contact', [StaticController::class, 'contact']) -> name('home.contact');
 Route::get('/search', [StaticController::class, 'search']) -> name('home.search');
-Route::get('/login', [LoginController::class, 'login']) -> name('home.login');
-Route::get('/register', [LoginController::class, 'register']) -> name('home.register');
+Route::get('/login', [LoginController::class, 'login'])->middleware("guest") -> name('home.login');
+Route::get('/register', [LoginController::class, 'register'])->middleware("guest") -> name('home.register');
 
 Route::post('/check', [LoginController::class, 'check']) -> name('check');
 Route::get('/destroy', [LoginController::class, 'destroy']) -> name('home.destroy');
@@ -38,13 +38,24 @@ Route::post('/', [LoginController::class, 'create']) -> name('create');
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
-Route::post('/houses', [HouseController::class, 'add']) -> name('add');
+Route::post('houses{id}', [HouseController::class, 'add']) -> name('add');
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
 Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit']) -> name('contact.submit');
+Route::view('/cart', "cart");
+
+
+
+Route::get('/test', function () {
+
+   return get_cart();
+});
+
+
 // Route::post('/electronics', [ElectronicController::class, 'show']);
 // Route::get('/search', [HouseController::class, 'search']) -> name('houses.search');
+
 
 // For Wallet Controller //
 // function get_cart_session_hash(){
