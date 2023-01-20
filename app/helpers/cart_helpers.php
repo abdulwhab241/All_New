@@ -24,7 +24,7 @@ function clear_cart(){
 function add_product_to_cart($product_id,$quantity):string{
 
 
-if(Cart::where("product_id",$product_id)->where("quantity",$quantity)->first())    {
+if(Cart::where("product_id",$product_id)->where("quantity",$quantity)->where("hash_id", get_cart_session_hash())->first())    {
     return "تم اضافة الصنف مسبقاَ";
 }
 
