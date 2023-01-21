@@ -1,154 +1,77 @@
 @extends('layout')
 @section('title', 'السلة')
 @section('Page')
-<link rel="stylesheet" href="css/Elec.css">
-
 <section class="cart_area">
 
-    {{-- <div class="container">
-        <div class="cart_inner">
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">المنتج</th>
-                            <th scope="col">السعر</th>
-                            <th scope="col">الكمية</th>
-                            <th scope="col">المجموع</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <img src="img/cart/cart1.png" alt="">
-                                    </div>
-                                    <div class="media-body">
-                                        <p>Minimalistic shop for multipurpose use</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <h5>$360.00</h5>
-                            </td>
-                            <td>
-                                <div class="product_count">
-                                    <input type="number" name="qty" min="1" value="1"  style="width: 50px; text-align: center; padding:5px;" >
-                                </div>
-                            </td>
-                            <td>
-                                <h5>$720.00</h5>
-                            </td>
-                        </tr>
-                        <tr class="bottom_button">
-                            <td>
-                                <a class="button" href="#">تحديث السلة </a>
-                            </td>
-                            <td>
-                                <div class="cupon_text d-flex align-items-center">
-                                    <a class="primary-btn" href="#">التقدم لإتمام الطلب</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <h5>Subtotal</h5>
-                            </td>
-                            <td>
-                                <h5>$2160.00</h5>
-                            </td>
-                        </tr>
-                        <tr class="shipping_area">
-                            <td class="d-none d-md-block">
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <h5>Shipping</h5>
-                            </td>
-                            <td>
-                                <div class="shipping_box">
-                                    <ul class="list">
-                                        <li><a href="#">Flat Rate: $5.00</a></li>
-                                        <li><a href="#">Free Shipping</a></li>
-                                        <li><a href="#">Flat Rate: $10.00</a></li>
-                                        <li class="active"><a href="#">Local Delivery: $2.00</a></li>
-                                    </ul>
-                                    <h6>Calculate Shipping <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
-                                    <select class="shipping_select">
-                                        <option value="1">Bangladesh</option>
-                                        <option value="2">India</option>
-                                        <option value="4">Pakistan</option>
-                                    </select>
-                                    <select class="shipping_select">
-                                        <option value="1">Select a State</option>
-                                        <option value="2">Select a State</option>
-                                        <option value="4">Select a State</option>
-                                    </select>
-                                    <input type="text" placeholder="Postcode/Zipcode">
-                                    <a class="gray_btn" href="#">Update Details</a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="out_button_area">
-                            <td class="d-none-l">
-
-                            </td>
-                            <td class="">
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <div class="checkout_btn_inner d-flex align-items-center">
-                                    <a class="gray_btn" href="#">Continue Shopping</a>
-                                    <a class="primary-btn ml-2" href="#">Proceed to checkout</a>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div> --}}
-
-    {{-- <table>
-        <thead>
-            <th>المنتج</th>
-            <th>الكمية</th>
-            <th>السعر</th>
-        </thead>
-        <tbody>
-            @foreach(get_cart() as $cart)
-            <tr>
-            {{-- <td> <img src="{{data_get($cart,"product.image","image.0")}}" alt=""> </td> --}}
-            {{-- <td> {{data_get($cart,"product.name")}} </td>
-            <td> {{data_get($cart,"quantity")}} </td>
-            <td>  {{number_format(data_get($cart,"product.price"))}} </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table> --}} 
-    @foreach(get_cart() as $cart)
-    {{data_get($cart,"product.name")}}  
-    <br/>
-    {{data_get($cart,"quantity")}} 
-    <br/>
-    {{number_format(data_get($cart,"product.price"))}} 
-    <br/>
-    <br/>
-    @endforeach
+    <div class="container">
+        <div class="row">
+        <div class="col">
+            @if(count(get_cart()) > 0)
     
+            <table class="table">
+                <thead>
+                    <th scope="col" style="width: 50%;">المنتج</th>
+                    <th scope="col" style="width: 8%;">الكمية</th>
+                    <th scope="col" style="width: 10%;">السعر</th>
+                    <th scope="col" style="width: 22%;">المجموع</th>
+                    <th scope="col" style="width: 10%;"></th>
+                </thead>
+                <tbody>
+                    @php $total = 0; @endphp
+                    @if (get_cart())
+                    @foreach (get_cart() as $cart)
+                        @php
+                            $sub_total = data_get($cart,"product.price") * data_get($cart,"quantity");
+                            $total += $sub_total;
+                        @endphp
+                    <tr>
+                        <td>
+                            @if(count(data_get($cart,'product.image')??[]))
+                            <img src="{{ '/uploads/' . data_get($cart,"product.image.0") }}" class="img-fluid rounded-start" style="width:100px;">
+                                </div>
+                            @endif
+                            <h6 style="margin-top: 10px;">{{data_get($cart,"product.name")}}</h6>
+                        </td>
+                        <td>
+                            <h6>{{data_get($cart,"quantity")}}</h6>
+                        </td>
+                        <td>
+                            <h6>{{number_format(data_get($cart,"product.price"))}} YER </h6>
+                        </td>
+                        <td>
+                            <h6>{{number_format($sub_total)}} YER </h6>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-danger btn-sm">X</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                    @endif
+                    </tbody>
+                    </table> 
+                    @else
+                    <h3 style="margin: 10px; font-weight: bold; text-align: center; color:blue;">سلة المشتريات فارغة حالياً</h3>
+                    <p style="text-align: center; margin-top: 25px;"><a class="btn btn-outline-info btn-lg" href="{{ route('home.index') }}">العوده الى المتجر</a></p>
+                    @endif
+                    <table class="table">
+                        <thead>
+                            <th scope="col" style="text-align: center;">إجمالي سلة المشتريات </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h6 scope="col" style="text-align: center;">{{number_format($total)}} YER </h6>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <form action="#">
+                        <p style="text-align: center;"><a class="btn btn-outline-info btn-lg" href="#">التقديم لإتمام الطلب </a></p>
+                    </form>
+                        </div>
+                    </div>
+                    </div>
 </section>
 @endsection
+
 

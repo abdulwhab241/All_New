@@ -57,7 +57,7 @@
                 {{ $houses->links() }}
                 </div>
                 @else
-                <h3 style="margin: 10px;">لا يوجد منتجات لعرضها</h3>
+                <h3 style="margin: 10px; font-weight: bold; text-align: center;">لا يوجد منتجات لعرضها</h3>
                 @endif
     </div>
   </div>
