@@ -38,7 +38,7 @@ Route::post('/', [LoginController::class, 'create']) -> name('create');
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
-Route::post('houses{id}', [HouseController::class, 'add']) -> name('add');
+Route::post('{id}', [HouseController::class, 'add']) -> name('add');
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
 Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');

@@ -34,8 +34,6 @@
       </div>
     </form>
     </div>
-    {{-- <input type="number" name="" id="">
-    <a href='#'  class="btn btn-outline-info btn-lg btn-block"  style="cursor: pointer; border: none; margin: 10px; font-weight: bold;">إضافة الى السلة</a> --}}
   </div> 
 </div>   
 </div>

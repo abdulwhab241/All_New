@@ -3,38 +3,43 @@
 use App\Models\Cart;
 use Illuminate\Support\Str;
 
-function get_cart_session_hash(){
-    $cart_hash =  session()->get('cart_session_hash');
-
-    if($cart_hash){
-        return $cart_hash;
-    }
-    session()->put('cart_session_hash',Str::random(60));
-    return  session()->get('cart_session_hash');
-}
-
 function get_cart(){
-    return Cart::with(["product"])->where("hash_id", get_cart_session_hash())->get();
+    return Cart::with(["product"])->where("user_id", auth()->id())->get();
 }
 
 function clear_cart(){
-    return Cart::where("hash_id", get_cart_session_hash())->delete();
+    return Cart::where("user_id", auth()->id())->delete();
 }
 
 function add_product_to_cart($product_id,$quantity):string{
 
 
-if(Cart::where("product_id",$product_id)->where("quantity",$quantity)->where("hash_id", get_cart_session_hash())->first())    {
-    return "تم اضافة الصنف مسبقاَ";
-}
+    if(!auth()->id()){
+        return "يلزم تسجيل الدخول";
+    }
 
-        Cart::create(
+if($product = Cart::where("product_id",$product_id)->where("user_id", auth()->id())->first())    {
+
+
+    if($product->quantity == $quantity){
+        return "تم اضافة الصنف مسبقاَ";
+    }else{
+        $product->quantity = $product->quantity + $quantity;
+        $product->save();
+        return "تم زيادة الكمية";
+    }
+
+
+}else{
+    Cart::create(
         [
             "product_id" => $product_id,
             "quantity" => $quantity,
-            "hash_id" => get_cart_session_hash()
+            "user_id" => auth()->id()
         ]
     );
+}
+
     return "تم اضافة الصنف للسلة";
 
 }
