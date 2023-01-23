@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -26,7 +27,6 @@ use App\Http\Controllers\ElectronicController;
 */
 define('PAGINATION_COUNT', 8);
 Route::get('/', [StaticController::class, 'index']) -> name('home.index');
-// Route::get('/contact', [StaticController::class, 'contact']) -> name('home.contact');
 Route::get('/search', [StaticController::class, 'search']) -> name('home.search');
 Route::get('/login', [LoginController::class, 'login'])->middleware("guest") -> name('home.login');
 Route::get('/register', [LoginController::class, 'register'])->middleware("guest") -> name('home.register');
@@ -38,7 +38,11 @@ Route::post('/', [LoginController::class, 'create']) -> name('create');
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
-Route::post('{id}', [HouseController::class, 'add']) -> name('add');
+// Route::post('{id}', [HouseController::class, 'add']) -> name('add');
+
+Route::post('{id}', [CartController::class, 'add']) -> name('add');
+Route::get('/cart/{product_id}', [CartController::class, 'remove']) -> name('remove');
+
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
 Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');

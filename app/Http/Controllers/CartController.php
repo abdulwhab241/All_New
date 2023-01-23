@@ -10,48 +10,35 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function add(Request $request)
+    public function add(Request $request, $id)
     {
-        // $products = Product::findOrFail($request);
-        // // Check user is login or not
-        // if(isset(Auth::user()->name))
+        // Check user is login or not
+        if(isset(Auth::user()->name))
+        {
+            $product = Product::find($id);
+            $message =  add_product_to_cart($product->id, $request->quantity);
+            return redirect()->back()->with('message',$message);
+        }
+        else
+        {
+            return redirect('/login')->with('message', ' يرحى تسجيل الدخول من اجل اتمام العملية ');
+        }
+    }
+
+    public function remove(Request $request)
+    {
+        // $cart =Cart::where('product_id')->delete();
+        $to_delete = Cart::findOrFail($request)->where('product_id')->delete();
+        // $to_delete ->delete();
+        return redirect()->back()->with('error', ' تم حذف المنتج من السلة ');
+
+        // $cart = session()->get('cart');
+
+        // if(isset($cart[$product_id]))
         // {
-        //     // Check cart is exists or not
-        //     if($cart = Cart::where('user_id',$request->user_id)->where('status',0)->where('is_open',0)->exists())
-        //     {
-        //         $cart = Cart::where('user_id', $request->user_id)->where('status', 0)->where('is_open', 0)->first();
-        //         // Check product is exists or not 
-        //         if($cartDetails = CartDetails::where('cart_id', $cart->id)->where('is_open',0)->exists())
-        //         {
-        //             return redirect()->back()->with('message',"تم اضافة الصنف مسبقاَ");
-        //         }
-        //         else
-        //         {
-        //             $productCreate = CartDetails::create([
-        //                 'cart_id' => $cart->id,
-        //                 'product_id' => $products['id']
-        //             ]);
-        //             return redirect()->back();
-        //         }
-        //     }
-        //     else
-        //     {
-        //         // Create cart
-        //         $cartCreate = Cart::create([
-        //             'user_id' => auth('web')->user()->id
-        //         ]);
-        //         // Create product
-        //         $createCartDetails = CartDetails::create([
-        //             'cart_id' => $cartCreate['id'],
-        //             'product_id' => $products['id']
-        //             // 'qty' => $request->quantity
-        //         ]);
-        //         return redirect()->back()->with('message', 'تم إضافة المنتج الى السلة');
-        //     }
+        //     unset($cart[$product_id]);
+        //     session()->put('cart', $cart);
         // }
-        // else
-        // {
-        //     return redirect('/login')->with('message', ' يرحى تسجيل الدخول من اجل اتمام العملية ');
-        // }
+        // return redirect()->back()->with('error', ' تم حذف المنتج من السلة ');
     }
 }

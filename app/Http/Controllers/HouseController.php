@@ -28,10 +28,10 @@ class HouseController extends Controller
     }
 
     
-    public function add(Request  $request, $id)
-    {
-        $product = Product::find($id);
-        $message =  add_product_to_cart($product->id, $request->quantity);
-        return redirect()->back()->with('message',$message);
-    }
+    // public function add(Request  $request, $id)
+    // {
+    //     $product = Product::find($id);
+    //     $message =  add_product_to_cart($product->id, $request->quantity);
+    //     return redirect()->back()->with('message',$message);
+    // }
 }

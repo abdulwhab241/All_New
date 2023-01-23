@@ -2,11 +2,10 @@
 @section('title', 'تسجيل الدخول')
 @section('Page')
 <section>
-<div class="container" style="margin-bottom: 20px;">
+<div class="container" style="margin-bottom: 20px; margin-top:20px;">
     <div class="row">
         <div class="col-lg-6" style="background-color: #F1F6F7;">
             <div class="login_form_inner">
-                <h3 style="color: cornflowerblue; font-weight: bold;">تسجيل الدخول</h3>
                 @if (Session::has('message'))
                 <div class="alert alert-info">
                     <span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
