@@ -64,7 +64,7 @@
               <li class="nav-item"><a class="nav-link" href="{{ route('contact.show') }}">اتصل بنا</a></li>
             </ul>
             <ul class="nav-shop">
-              <li class="nav-item"><a class="button button-header btn-info" href="#">شراء الان</a></li>
+              {{-- <li class="nav-item"><a class="button button-header btn-info" href="#">شراء الان</a></li> --}}
               <li class="nav-item"><a href="/cart"><i class="ti-shopping-cart"></i><span class="nav-shop__circle" style="margin-top: 10px;">
                 {{count(get_cart())}}
               </span></a> </li>

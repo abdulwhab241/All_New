@@ -72,11 +72,11 @@
                         </tbody>
                     </table>
                     <form action="#">
-                        <p style="text-align: center;"><a class="btn btn-outline-info btn-lg" href="#">التقديم لإتمام الطلب </a></p>
+                        <p style="text-align: center;"><a class="btn btn-outline-info btn-lg" href="{{ route('checkouts.index') }}">التقديم لإتمام الطلب </a></p>
                     </form>
                     @else
                     <h3 style="margin: 10px; font-weight: bold; text-align: center; color:blue;">سلة المشتريات فارغة حالياً</h3>
-                    <p style="text-align: center; margin-top: 25px;"><a class="btn btn-outline-info btn-lg" href="{{ route('home.index') }}">العوده الى المتجر</a></p>
+                    <p style="text-align: center; margin-top: 25px;"><a class="btn btn-outline-info btn-lg" href="{{ route('home.index') }}" style="width: 15%;">العوده الى المتجر</a></p>
                     @endif
                         </div>
                     </div>

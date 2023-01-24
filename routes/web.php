@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
-use App\Models\Cart;
-use App\Models\User;
-use Illuminate\Support\Str;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\LoginController;
@@ -49,12 +47,12 @@ Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show
 Route::post('/contact', [ContactController::class, 'submit']) -> name('contact.submit');
 Route::view('/cart', "cart");
 
+Route::resource('checkouts', CheckoutController::class);
 
+// Route::get('/test', function () {
 
-Route::get('/test', function () {
-
-   return get_cart();
-});
+//    return get_cart();
+// });
 
 
 // Route::post('/electronics', [ElectronicController::class, 'show']);
