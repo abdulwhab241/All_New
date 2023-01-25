@@ -83,7 +83,7 @@
                   aria-expanded="false">أوول نيو ورك 🏬 </a>
                 <ul class="dropdown-menu">
                   <li class="nav-item">
-                  <h6 style="color: cornflowerblue; font-weight: bold; text-align: center;"> Welcome {{ Auth::user()->name}}</h6>
+                  <h6 style="color: cornflowerblue; font-weight: bold; text-align: center;"> مرحباً بــكــ {{ Auth::user()->name}} </h6>
                   </li>
                   <li class="nav-item"><a class="nav-link" style="font-weight: bold; text-align: center; color: red" href="{{ route('home.destroy') }}">تسجيل خروج</a></li>
                 </ul>
