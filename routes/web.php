@@ -36,6 +36,7 @@ Route::post('/', [LoginController::class, 'create']) -> name('create');
 Route::resource('electrics', ElectricController::class);
 Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
+Route::resource('cart', CartController::class);
 // Route::post('{id}', [HouseController::class, 'add']) -> name('add');
 
 Route::post('{id}', [CartController::class, 'add']) -> name('add');
@@ -45,7 +46,7 @@ Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
 Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit']) -> name('contact.submit');
-Route::view('/cart', "cart");
+// Route::view('/cart', "cart");
 
 Route::resource('checkouts', CheckoutController::class);
 

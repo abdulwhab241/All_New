@@ -1,9 +1,20 @@
 @extends('layout')
 @section('title', 'تسجيل الدخول')
 @section('Page')
-<section>
-<div class="container" style="margin-bottom: 20px; margin-top:20px;">
+<section class="login_box_area section-margin">
+<div class="container" >
     <div class="row">
+        <div class="col-lg-6" style="background-color: #F1F6F7;">
+            <div class="login_box_img">
+                <div class="hover">
+                    <h4>🏬 متجر أوول نيو ورك </h4>
+                    <p>
+                        مكيفات _ دفايات _ سرويسات _ سخانات و غلايات ماء _ كاميرات  _ توربينات _  طباخات طاقة شمسية _ مساجات _ مستلزمات سيارات _ ادوات منزلية _ اكسسوارات _ لمبات انارة الشوارع 
+                    </p>
+                    <a class="button button-account" href="{{ route('home.register') }}">إنشاء حساب </a>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-6" style="background-color: #F1F6F7;">
             <div class="login_form_inner">
                 @if (Session::has('message'))

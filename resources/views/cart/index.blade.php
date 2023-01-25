@@ -47,10 +47,11 @@
                             <h6>{{number_format($sub_total)}} YER </h6>
                         </td>
                         <td>
-                            {{-- <form action="{{ route('remove',data_get($cart,"product_id")) }}" method="GET">
+                            {{-- <form action="{{route('remove',$cart['id'])}}" method="GET">
                                 @csrf
                                 @method('DELETE')
-                            <input type="submit" class="btn btn-danger btn-sm" value="X"> --}}
+                            <input type="submit" class="btn btn-danger btn-sm" value="X">
+                            <a href="{{route('remove',$cart['id'])}}" class="btn btn-danger btn-sm">X</a> --}}
                             <a href="#" class="btn btn-danger btn-sm">X</a>
                         {{-- </form> --}}
                         </td>

@@ -1,9 +1,20 @@
 @extends('layout')
 @section('title', ' إنشاء حساب')
 @section('Page')
-<section >
+<section class="login_box_area section-margin">
 <div class="container" style="margin-bottom: 20px;">
 <div class="row">
+	<div class="col-lg-6">
+		<div class="login_box_img">
+			<div class="hover">
+				<h4>هل لديك بالفعل حساب؟</h4>
+				<p>
+					🏬 متجر أوول نيو ورك                         مكيفات _ دفايات _ سرويسات _ سخانات و غلايات ماء _ كاميرات  _ توربينات _  طباخات طاقة شمسية _ مساجات _ مستلزمات سيارات _ ادوات منزلية _ اكسسوارات _ لمبات انارة الشوارع 
+				</p>
+				<a class="button button-account" href="{{ route('home.login') }}">تسجيل الدخول </a>
+			</div>
+		</div>
+	</div>
 <div class="col-lg-6 md-6" style="background-color: #F1F6F7;">
 <div class="login_form_inner register_form_inner">
 <h3 style="color: cornflowerblue; font-weight: bold;">إنشاء حساب</h3>
