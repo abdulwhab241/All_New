@@ -38,9 +38,10 @@ Route::resource('electronics', ElectronicController::class);
 Route::resource('houses', HouseController::class);
 Route::resource('cart', CartController::class);
 // Route::post('{id}', [HouseController::class, 'add']) -> name('add');
-
+// Add product to Cart 
 Route::post('{id}', [CartController::class, 'add']) -> name('add');
-Route::get('/cart/{product_id}', [CartController::class, 'remove']) -> name('remove');
+// Delete Product From Cart 
+Route::get('cart{id}/user{user_id}', [CartController::class, 'remove']) -> name('remove');
 
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);

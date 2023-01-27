@@ -8,7 +8,7 @@
         <div class="col">
             @if (Session::has('error'))
             <div class="alert alert-danger">
-            <span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
+            <span style="text-align: center; font-weight: bold;"><h4 style="text-align: center font-weight: bold; color:red;">{{Session::get('error')}}</h4>  </span>
             </div>
             @endif
             @if(count(get_cart()) > 0)
@@ -47,13 +47,7 @@
                             <h6>{{number_format($sub_total)}} YER </h6>
                         </td>
                         <td>
-                            {{-- <form action="{{route('remove',$cart['id'])}}" method="GET">
-                                @csrf
-                                @method('DELETE')
-                            <input type="submit" class="btn btn-danger btn-sm" value="X">
-                            <a href="{{route('remove',$cart['id'])}}" class="btn btn-danger btn-sm">X</a> --}}
-                            <a href="#" class="btn btn-danger btn-sm">X</a>
-                        {{-- </form> --}}
+                            <a href="{{route('remove',[$cart->id,$cart->user_id])}}" class="btn btn-danger btn-sm">X</a>
                         </td>
                     </tr>
                     @endforeach

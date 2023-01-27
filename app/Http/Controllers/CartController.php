@@ -30,38 +30,16 @@ class CartController extends Controller
         }
     }
 
-    public function remove()
+    public function remove($id ,$user_id)
     {
-        // $product = Cart::where('product_id', $product_id)->first();
-        // if($product)
-        // {
-        //     $product->delete();
-        //     return redirect()->back()->with('error', ' تم حذف المنتج من السلة ');
-        // }
-        // else{
-        //     return redirect()->back()->with('error', 'المنتج غير موجود!');
-        // }
-        // $to_delete =Cart::where('product_id');
-        // $to_delete = Cart::findOrFail($id);
-        // $to_delete ->delete();
-        // clear_product($id);
-        // $delete =Cart::where("user_id", auth()->id())->where('id',$cart)->delete();
-        $delete =Cart::where("user_id", auth()->id())->where('id');
-        $delete -> delete();
-        return $delete;
-        // clear_product($cart);
-        // dd($delete);
-        // clear_product($id);
-        // $delete = Cart::where('id', $id)->where("user_id", auth()->id())->delete();
-        // return redirect()->back()->with('error', ' تم حذف المنتج من السلة ');
-
-        // $cart = session()->get('cart');
-
-        // if(isset($cart[$product_id]))
-        // {
-        //     unset($cart[$product_id]);
-        //     session()->put('cart', $cart);
-        // }
-        // return redirect()->back()->with('error', ' تم حذف المنتج من السلة ');
+            $product =Cart::where('id',$id)->where("user_id",$user_id)->first();
+            if($product)
+            {
+                $product->delete();
+                return redirect()->back()->with('error', ' تم حذف المنتج من السلة ');
+            }
+            else{
+                return redirect()->back()->with('error', 'المنتج غير موجود');
+            }
     }
 }
