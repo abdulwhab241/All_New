@@ -51,6 +51,8 @@ Route::post('/contact', [ContactController::class, 'submit']) -> name('contact.s
 
 Route::resource('checkouts', CheckoutController::class);
 
+Route::post('confirm/cart', [CheckoutController::class, 'confirm']) -> name('confirm');
+
 // Route::get('/test', function () {
 
 //    return get_cart();

@@ -18,4 +18,11 @@ class CheckoutController extends Controller
                 return redirect('/login')->with('message', ' يرحى تسجيل الدخول من اجل اتمام العملية ');
             }
     }
+
+    public function confirm(Request $request)
+    {
+        dd($request) ;
+
+        // return back()->with(['message' => 'تم إرسال طلبك بنجاح']);
+    }
 }
