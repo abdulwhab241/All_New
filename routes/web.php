@@ -45,8 +45,9 @@ Route::get('cart{id}/user{user_id}', [CartController::class, 'remove']) -> name(
 
 Route::resource('medicals', MedicalController::class);
 Route::resource('moderns', ModernController::class);
-Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');
-Route::post('/contact', [ContactController::class, 'submit']) -> name('contact.submit');
+// Route::get('/contact', [ContactController::class, 'show']) -> name('contact.show');
+Route::resource('contact', ContactController::class);
+Route::post('/contact', [ContactController::class, 'submit']) -> name('submit');
 // Route::view('/cart', "cart");
 
 Route::resource('checkouts', CheckoutController::class);

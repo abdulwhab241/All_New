@@ -61,7 +61,7 @@
                 </ul>
               
               </li>
-              <li class="nav-item"><a class="nav-link" href="{{ route('contact.show') }}">اتصل بنا</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('contact.index') }}">اتصل بنا</a></li>
             </ul>
             <ul class="nav-shop">
               {{-- <li class="nav-item"><a class="button button-header btn-info" href="#">شراء الان</a></li> --}}

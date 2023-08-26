@@ -15,15 +15,26 @@
         <div class="billing_details">
             <div class="row">
                 <div class="col-lg-8" style="background-color: #F1F6F7;">
+
+                    <marquee direction="right" scrollamount="3">
+                        <p class="text-center"
+                            style="margin: 5px; font-size:20px; font-weight: bolder; color:cornflowerblue;">
+                            يـرجـى تـحـديـد طـريـقـة الـدفـع عـنـد إتـمام عـمـلـيـة الـدفـع<br />
+                            والـرجـى إدخـال بـيـانـاتـك الـصـحـيـحـة
+
+                        </p>
+                    </marquee>
+
                     <h3 style="margin-top: 20px;">تفاصيل الفاتورة</h3>
-                    <form class="row contact_form" action="{{route('confirm')}}" method="POST" novalidate="novalidate">
+                    <form class="row contact_form" action="{{route('confirm')}}" method="POST">
+                        @csrf
                         <div class="col-md-6 form-group p_star">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;">الاسم الأول:</label>
-                            <input type="text" class="form-control" id="first" name="name">
+                            <input type="text" class="form-control" id="first" required name="first">
                         </div>
                         <div class="col-md-6 form-group p_star">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;">الاسم الأخير:</label>
-                            <input type="text" class="form-control" id="last" name="name">
+                            <input type="text" class="form-control" id="last" required name="last">
                         </div>
                         <div class="col-md-12 form-group">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;">اسم الشركة (اختياري)</label>
@@ -31,23 +42,23 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;">عنوان الشارع / الحي:</label>
-                            <input type="text" class="form-control" id="number" name="address">
+                            <input type="text" class="form-control" id="number" required name="address">
                         </div>
                         <div class="col-md-6 form-group p_star">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;"> المدينة:</label>
-                            <input type="text" class="form-control" id="email" name="city">
+                            <input type="text" class="form-control" id="email" required name="city">
                         </div>
                         <div class="col-md-6 form-group p_star">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;"> المنطقة:</label>
-                            <input type="text" class="form-control" id="email" name="area">
+                            <input type="text" class="form-control" id="email" required name="area">
                         </div>
                         <div class="col-md-12 form-group">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;"> الهاتف:</label>
-                            <input type="text" class="form-control" id="email" name="phone">
+                            <input type="text" class="form-control" id="email" required name="phone">
                         </div>
                         <div class="col-md-12 form-group">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;"> البريد الإلكتروني:</label>
-                            <input type="text" class="form-control" id="email" name="email">
+                            <input type="email" class="form-control" id="email" required name="email">
                         </div>
                         <div class="col-md-12 form-group">
                             <label style=" color:black; font-weight: bold; padding:5px; margin:5px;"> ملاحظات الطلب (اختياري)</label>
@@ -91,7 +102,7 @@
                         </ul>
                         <div class="payment_item">
                             <div class="radion_btn">
-                                <input type="radio" id="f-option5" name="pay" value="حوالة مصرفية مباشرة">
+                                <input type="radio" id="f-option5" name="pay"  value="حوالة مصرفية مباشرة">
                                 <label for="f-option5">حوالة مصرفية مباشرة</label>
                                 <img src="/img/product/card.jpg" alt="">
                                 <div class="check"></div>
@@ -103,7 +114,7 @@
                         </div>
                         <div class="payment_item active">
                             <div class="radion_btn">
-                                <input type="radio" id="f-option6" name="pay" value="الدفع نقدًا عند الاستلام">
+                                <input type="radio" id="f-option6" name="pay"  value="الدفع نقدًا عند الاستلام">
                                 <label for="f-option6"> الدفع نقدًا عند الاستلام </label>
                                 <div class="check"></div>
                             </div>

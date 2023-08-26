@@ -10,9 +10,9 @@ use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
-    public function show()
+    public function index()
     {
-        return view('contact.show');
+        return view('contact.index');
     }
 
     public function submit(ContactRequest $request)
@@ -26,6 +26,6 @@ class ContactController extends Controller
 
         $contact -> save();
         // Mail::to($request->email)->send(new ContactMail($request->name,$request->email,$request->mobile,$request->title, $request->content));
-        return back()->with(['message' => 'تم الارسال بنجاح']);
+        return redirect()-> back()->with(['message' => 'تم الارسال بنجاح']);
     }
 }

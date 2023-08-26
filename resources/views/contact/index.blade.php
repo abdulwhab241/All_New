@@ -24,7 +24,7 @@
 	<span style="text-align: center; font-weight: bold;"> {{Session::get('message')}} </span>
 </div>
 @endif
-    <form action="{{ route('contact.submit') }}" class="contact_form" method="POST" enctype="multipart/form-data" id="contactForm" novalidate="novalidate">
+    <form action="{{ route('submit') }}" class="contact_form" method="POST" enctype="multipart/form-data" id="contactForm" novalidate="novalidate">
     @csrf
     <div class="row">
         <div class="col-lg-5">
@@ -37,7 +37,7 @@
         @enderror
         </div>
         <div class="form-group">
-            <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email" placeholder="عنوان البريد الإلكتروني ">
+            <input class="form-control" name="email" value="{{ old('email') }}" id="email" type="email"  placeholder="عنوان البريد الإلكتروني ">
             @error('email')
             <span class="text-danger">
             الإيميل فارغ الرجاء إدخال الإيميل
